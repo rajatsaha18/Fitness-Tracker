@@ -9,12 +9,12 @@
                 <li><a href="index-2.html">Dashboard Dark<span class="badge badge-xs badge-danger ms-3">New</span></a></li>
                 <li><a href="{{ route('workout') }}">Workout</a></li>
                 <li><a href="{{ route('activity') }}">Activity</a></li>
-                <li><a href="distance-map.html">Distance Map</a></li>
+                <li><a href="{{ route('goal') }}">Goal Set</a></li>
                 <li><a href="food-menu.html">Diet Food Menu</a></li>
                 <li><a href="personal-record.html">Personal Record</a></li>
             </ul>
         </li>
-        <li><a class="has-arrow ai-icon" href="javascript:void(0)" aria-expanded="false">
+        {{-- <li><a class="has-arrow ai-icon" href="javascript:void(0)" aria-expanded="false">
                 <i class="flaticon-381-television"></i>
                 <span class="nav-text">Apps</span>
             </a>
@@ -138,7 +138,7 @@
                 </li>
                 <li><a href="page-lock-screen.html">Lock Screen</a></li>
             </ul>
-        </li>
+        </li> --}}
     </ul>
     <div class="drum-box">
         <img src="{{asset('website/assets/images/card/drump.png')}}" alt="">
