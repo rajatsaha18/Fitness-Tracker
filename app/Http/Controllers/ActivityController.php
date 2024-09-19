@@ -25,6 +25,6 @@ class ActivityController extends Controller
         ]);
 
         Activity::newActivity($request);
-        return redirect()->back();
+        return redirect()->back()->with('message','Activity Set Successfully');
     }
 }

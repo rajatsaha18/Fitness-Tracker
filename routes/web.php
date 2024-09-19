@@ -6,7 +6,7 @@ use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\GoalSetController;
 
-// Route::get('/', [HomeController::class,'index'])->name('home');
+Route::redirect('/','login');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
     Route::get('/dashboard', [HomeController::class,'index'])->name('dashboard');
