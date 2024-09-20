@@ -5,6 +5,7 @@ use App\Http\Controllers\website\HomeController;
 use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\GoalSetController;
+use App\Http\Controllers\MealPlanController;
 
 Route::redirect('/','login');
 
@@ -20,6 +21,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::post('/new-activity', [ActivityController::class,'newActivity'])->name('activity.new');
 
     //goal set
-    Route::get('/goal-index', [GoalSetController::class,'index'])->name('goal');
     Route::post('/new-goal', [GoalSetController::class,'newGoal'])->name('goal.new');
+    Route::get('/goal-index', [GoalSetController::class,'index'])->name('goal');
+
+    //meal plan
+    Route::get('/meal-index', [MealPlanController::class,'index'])->name('meal.plan');
 });

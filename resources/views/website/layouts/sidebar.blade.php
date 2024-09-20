@@ -10,7 +10,7 @@
                 <li><a href="{{ route('workout') }}">Workout</a></li>
                 <li><a href="{{ route('activity') }}">Activity</a></li>
                 <li><a href="{{ route('goal') }}">Goal Set</a></li>
-                <li><a href="food-menu.html">Diet Food Menu</a></li>
+                <li><a href="{{ route('meal.plan') }}">Meal Plan</a></li>
                 <li><a href="personal-record.html">Personal Record</a></li>
             </ul>
         </li>
