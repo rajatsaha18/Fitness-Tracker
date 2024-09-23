@@ -5,8 +5,7 @@
                 <span class="nav-text">Dashboard</span>
             </a>
             <ul aria-expanded="false">
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="index-2.html">Dashboard Dark<span class="badge badge-xs badge-danger ms-3">New</span></a></li>
+                <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                 <li><a href="{{ route('workout') }}">Workout</a></li>
                 <li><a href="{{ route('activity') }}">Activity</a></li>
                 <li><a href="{{ route('goal') }}">Goal Set</a></li>

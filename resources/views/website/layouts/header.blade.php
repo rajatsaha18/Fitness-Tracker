@@ -3,7 +3,15 @@
         <div class="collapse navbar-collapse justify-content-between">
             <div class="header-left">
                 <div class="dashboard_bar">
-                    Dashboard					</div>
+                    @if (Auth::check() && Auth::user()->user_type == 'user')
+                    {{-- User Dashboard --}}
+                    <h2>Dashboard</h2>
+                    @else
+                    {{-- Admin Dashboard --}}
+                    <h2>Admin-Dashboard</h2>
+                    @endif
+
+                </div>
             </div>
 
             <ul class="navbar-nav header-right">

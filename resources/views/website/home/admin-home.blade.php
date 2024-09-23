@@ -1,10 +1,11 @@
 @extends('website.master')
 @section('title')
-Fitness | Home
+Fitness | Admin-Home
 @endsection
 
 @section('content')
 <div class="row">
+    {{-- <h4>Admin</h4> --}}
     <div class="col-xl col-md-6">
         <div class="card">
             <div class="card-body p-4">
@@ -94,7 +95,6 @@ Fitness | Home
             </div>
         </div>
     </div>
-    @if (Auth::check() && Auth::user()->user_type == 'admin')
     <div class="col-xl col-md-4 col-sm-6">
         <div class="card">
             <div class="card-body p-4">
@@ -112,10 +112,6 @@ Fitness | Home
             </div>
         </div>
     </div>
-    @else
-
-    @endif
-
     <div class="col-xl-9 col-xxl-8">
         <div class="card">
             <div class="card-header flex-wrap pb-0 border-0">

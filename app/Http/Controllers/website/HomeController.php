@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers\website;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('website.home.home');
+        if(Auth::user()->user_type == 'user')
+        {
+            return view('website.home.home');
+        }
+        else
+        {
+            return view('website.home.admin-home');
+        }
+
     }
 }
