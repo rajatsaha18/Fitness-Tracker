@@ -7,27 +7,31 @@
                 <thead>
                     <tr>
                         <th width="5%">Sl.</th>
-                        <th>Calories</th>
                         <th>Distance</th>
-                        <th>Steps</th>
-                        <th>Date</th>
-                        <th width="10%">Action</th>
+                        <th>start date</th>
+                        <th>end date</th>
+                        <th width="20%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($activities as $Goal)
+                    @foreach ($goals as $goal)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $Goal->calories_burned }}</td>
-                        <td>{{ $Goal->distance }}</td>
-                        <td>{{ $Goal->steps }}</td>
-                        <td>{{ $Goal->date }}</td>
+                        <td>{{ $goal->description }}</td>
+                        <td>{{ $goal->start_date }}</td>
+                        <td>{{ $goal->end_date }}</td>
                         <td>
-                            <a href="" class="btn btn-info btn-sm mb-2"><i class="fa-regular fa-pen-to-square"></i></a>
-                            <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
+                            <form action="{{ route('goal.status') }}" method="post">
+                                @csrf
+                                <select name="goal_status" id="" class="form-control">
+                                    <option value="">status</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </form>
                         </td>
                     </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div> <!-- End of table-responsive -->

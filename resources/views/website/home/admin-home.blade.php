@@ -7,6 +7,27 @@ Fitness | Admin-Home
 <div class="row">
     {{-- <h4>Admin</h4> --}}
     <div class="col-xl col-md-6">
+@php
+    use Carbon\Carbon;
+
+    // Get the current date
+    $today = Carbon::today();
+
+    // Retrieve the goal (assuming single goal ID for this example)
+    $goal = DB::table('goals')->where('id', 1)->first();
+
+    // Calculate the total duration of the goal in days
+    $startDate = Carbon::parse($goal->start_date);
+    $endDate = Carbon::parse($goal->end_date);
+    $totalDays = $endDate->diffInDays($startDate);
+
+    // Calculate how many days have passed since the start date
+    $daysPassed = $today->diffInDays($startDate);
+
+    // Ensure that the progress doesn't exceed 100%
+    $progressPercentage = ($daysPassed / $totalDays) * 100;
+    $progressPercentage = $progressPercentage > 100 ? 100 : $progressPercentage;
+@endphp
         <div class="card">
             <div class="card-body p-4">
                 <div class="d-inline-block mb-4 ms--12 position-relative donut-chart-sale">
@@ -18,7 +39,7 @@ Fitness | Admin-Home
                     </small>
                     <span class="circle bg-primary"></span>
                 </div>
-                <h2 class="fs-24 text-black font-w600 mb-0">42%</h2>
+                <h2 class="fs-24 text-black font-w600 mb-0">{{ round($progressPercentage, 2) }}%</h2>
                 <span class="fs-14">Weekly Progress</span>
             </div>
         </div>
@@ -107,7 +128,10 @@ Fitness | Admin-Home
                     </small>
                     <span class="circle bg-success"></span>
                 </div>
-                <h2 class="fs-24 text-black font-w600 mb-0">974 Person</h2>
+                @php
+                    $personCount = DB::table('users')->where('user_type','user')->count();
+                @endphp
+                <h2 class="fs-24 text-black font-w600 mb-0">{{ $personCount }} Person</h2>
                 <span class="fs-14">Total Members</span>
             </div>
         </div>

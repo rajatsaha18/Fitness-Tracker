@@ -6,6 +6,27 @@ Fitness | Home
 @section('content')
 <div class="row">
     <div class="col-xl col-md-6">
+{{-- @php
+    use Carbon\Carbon;
+
+    // Get the current date
+    $today = Carbon::today();
+
+    // Retrieve the goal (assuming single goal ID for this example)
+    $goal = DB::table('goals')->first();
+
+    // Calculate the total duration of the goal in days
+    $startDate = Carbon::parse($goal->start_date);
+    $endDate = Carbon::parse($goal->end_date);
+    $totalDays = $endDate->diffInDays($startDate);
+
+    // Calculate how many days have passed since the start date
+    $daysPassed = $today->diffInDays($startDate);
+
+    // Ensure that the progress doesn't exceed 100%
+    $progressPercentage = ($daysPassed / $totalDays) * 100;
+    $progressPercentage = $progressPercentage > 100 ? 100 : $progressPercentage;
+@endphp --}}
         <div class="card">
             <div class="card-body p-4">
                 <div class="d-inline-block mb-4 ms--12 position-relative donut-chart-sale">
@@ -17,6 +38,9 @@ Fitness | Home
                     </small>
                     <span class="circle bg-primary"></span>
                 </div>
+                @php
+
+                @endphp
                 <h2 class="fs-24 text-black font-w600 mb-0">42%</h2>
                 <span class="fs-14">Weekly Progress</span>
             </div>
@@ -41,7 +65,10 @@ Fitness | Home
                     </small>
                     <span class="circle bg-danger"></span>
                 </div>
-                <h2 class="fs-24 text-black font-w600 mb-0">67cal</h2>
+                @php
+                    $caloriesBurned = DB::table('activities')->sum('calories_burned');
+                @endphp
+                <h2 class="fs-24 text-black font-w600 mb-0">{{ $caloriesBurned }}cal</h2>
                 <span class="fs-14">Calories Burn</span>
             </div>
         </div>
@@ -65,8 +92,11 @@ Fitness | Home
                     </small>
                     <span class="circle bg-warning"></span>
                 </div>
-                <h2 class="fs-24 text-black font-w600 mb-0">5 Left</h2>
-                <span class="fs-14">Diet Programs</span>
+                @php
+                    $totalSteps = DB::table('activities')->sum('steps');
+                @endphp
+                <h2 class="fs-24 text-black font-w600 mb-0">{{ $totalSteps }}</h2>
+                <span class="fs-14">Total Steps</span>
             </div>
         </div>
     </div>
@@ -107,6 +137,7 @@ Fitness | Home
                     </small>
                     <span class="circle bg-success"></span>
                 </div>
+
                 <h2 class="fs-24 text-black font-w600 mb-0">974 Person</h2>
                 <span class="fs-14">Total Members</span>
             </div>
@@ -209,7 +240,7 @@ Fitness | Home
             <div class="card-body">
                 <div class="media align-items-center border border-warning rounded p-3 mb-md-4 mb-3">
                     <div class="d-inline-block me-3 position-relative donut-chart-sale2">
-                        <span class="donut2" data-peity='{ "fill": ["rgb(255, 148, 50)", "rgba(255, 255, 255, 1)"],   "innerRadius": 27, "radius": 10}'>6/8</span>
+                        <span class="donut2" data-peity='{ "fill": ["rgb(25n5, 148, 50)", "rgba(255, 255, 255, 1)"],   "innerRadius": 27, "radius": 10}'>6/8</span>
                         <small class="text-primary">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip6)">

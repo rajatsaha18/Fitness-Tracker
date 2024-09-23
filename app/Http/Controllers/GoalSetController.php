@@ -9,7 +9,8 @@ class GoalSetController extends Controller
 {
     public function index()
     {
-        return view('website.goal.index');
+        $goals = Goal::all();
+        return view('website.goal.index',compact('goals'));
     }
     public function newGoal(Request $request)
     {
