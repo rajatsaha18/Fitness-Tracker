@@ -39,10 +39,10 @@ Fitness | Home
                     <span class="circle bg-primary"></span>
                 </div>
                 @php
-
+                    $intakeCalories = DB::table('meals')->first();
                 @endphp
-                <h2 class="fs-24 text-black font-w600 mb-0">42%</h2>
-                <span class="fs-14">Weekly Progress</span>
+                <h2 class="fs-24 text-black font-w600 mb-0">{{ $intakeCalories->food_item }} Cal</h2>
+                <span class="fs-14">Intake Calories</span>
             </div>
         </div>
     </div>

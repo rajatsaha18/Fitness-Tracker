@@ -4,6 +4,7 @@ Fitness | Meal
 @endsection
 
 @section('content')
+
 <style>
     .sec_Meal
     {
@@ -13,6 +14,9 @@ Fitness | Meal
     {
         text-align: center!important;
     }
+
+
+
 </style>
 <section class="sec_Meal">
     <div class="container">
@@ -28,34 +32,44 @@ Fitness | Meal
                 <div class="card">
                     <div class="card-header text-success"><span class="text_center text-bold">Add New Meal</span></div>
                     <div class="card-body">
-                        <form action="" method="POST">
+                        <form action="{{route('new.meal')}}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="">Calories Burnued</label>
-                                <input type="text" class="form-control" name="calories_burned" placeholder="Enter the Calories Burned">
-                                <span class="text-danger">{{$errors->has('calories_burned') ? $errors->first('calories_burned') : ''}}</span>
+                                <label for="">Foods Time</label>
+                                <select name="foods_time" id="options" class="form-control">
+                                    <option value="">--Time--</option>
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                </select>
+                                <span class="text-danger">{{$errors->has('foods_time') ? $errors->first('foods_time') : ''}}</span>
                             </div>
                             <div class="form-group">
-                                <label for="">Duration</label>
-                                <input type="text" class="form-control" name="Meal_duration" placeholder="Enter the Duration Time">
-                                <span class="text-danger">{{$errors->has('Meal_duration') ? $errors->first('Meal_duration') : ''}}</span>
+                                <label for="">Foods/Take Calories</label>
+                                <select class="selectpicker" name="food_item[]" multiple data-live-search="true">
+                                    <option value="220">Rice(220cal)</option>
+                                    <option value="312">Nan Ruti(312cal)</option>
+                                    <option value="50">Vegetable(50cal)</option>
+                                    <option value="110">Mug Dal(110cal)</option>
+                                    <option value="323">Fish(323cal)</option>
+                                    <option value="200">Meat(200cal)</option>
+                                    <option value="60">Fruits(60cal)</option>
+                                    <option value="75">Egg(75cal)</option>
+
+                                  </select>
+                                <span class="text-danger">{{$errors->has('food_item') ? $errors->first('food_item') : ''}}</span>
                             </div>
+                            {{-- <div class="form-group">
+                                <label for="">Take Calories</label>
+                                <input type="text" name="calories" class="form-control" placeholder="Take Calories">
+                                <span class="text-danger">{{$errors->has('calories') ? $errors->first('calories') : ''}}</span>
+                            </div> --}}
                             <div class="form-group">
                                 <label for="">Date</label>
-                                <input type="date" class="form-control" name="date" placeholder="Select Date">
+                                <input type="date" name="date" class="form-control" placeholder="Date">
                                 <span class="text-danger">{{$errors->has('date') ? $errors->first('date') : ''}}</span>
                             </div>
                             <div class="form-group">
-                                <select name="Meal_type" id="" class="form-control">
-                                    <option value="">--select the type--</option>
-                                    <option value="Walking">Walking</option>
-                                    <option value="Running">Running</option>
-                                    <option value="Cycling">Cycling</option>
-                                    <option value="Yoga">Yoga</option>
-                                </select>
-                                <span class="text-danger">{{$errors->has('Meal_type') ? $errors->first('Meal_type') : ''}}</span>
-                            </div>
-                            <div class="form-group text-center">
                                 <label for=""></label>
                                 <input type="submit" class="btn btn-success" value="Post Meal">
                             </div>
@@ -73,27 +87,21 @@ Fitness | Meal
                                 <thead>
                                     <tr>
                                         <th width="5%">Sl.</th>
-                                        <th>Calories</th>
-                                        <th>Duration</th>
+                                        <th>Meal Time</th>
+                                        <th>Intake Calories</th>
                                         <th>Date</th>
-                                        <th>Type</th>
-                                        <th width="10%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($Meals as $Meal)
+                                    @foreach ($meals as $meal)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $Meal->calories_burned }}</td>
-                                        <td>{{ $Meal->Meal_duration }}</td>
-                                        <td>{{ $Meal->date }}</td>
-                                        <td>{{ $Meal->Meal_type }}</td>
-                                        <td>
-                                            <a href="" class="btn btn-info btn-sm mb-2"><i class="fa-regular fa-pen-to-square"></i></a>
-                                            <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
-                                        </td>
+                                        <td>{{ $meal->foods_time }}</td>
+                                        <td>{{ $meal->food_item }}</td>
+                                        <td>{{ $meal->date }}</td>
+
                                     </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div> <!-- End of table-responsive -->
@@ -103,6 +111,12 @@ Fitness | Meal
 
         </div>
     </div>
+
 </section>
+<script>
+    $('select').selectpicker();
+</script>
 @endsection
+
+
 
