@@ -10,7 +10,8 @@
                         <th>Distance</th>
                         <th>start date</th>
                         <th>end date</th>
-                        <th width="20%">Action</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,14 +22,14 @@
                         <td>{{ $goal->start_date }}</td>
                         <td>{{ $goal->end_date }}</td>
                         <td>
-                            <form action="{{ route('goal.status') }}" method="post">
-                                @csrf
-                                <select name="goal_status" id="" class="form-control">
-                                    <option value="">status</option>
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
-                                </select>
-                            </form>
+                        @if ($goal->goal_status == 1)
+                        <span class="badge bg-success badge-sm">Complete</span>
+                        @else
+                        <span class="badge bg-danger badge-sm">Incomplete</span>
+                        @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('goal.status',$goal->id) }}" class="btn btn-info btn-sm">status</a>
                         </td>
                     </tr>
                     @endforeach

@@ -23,6 +23,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     //goal set
     Route::post('/new-goal', [GoalSetController::class,'newGoal'])->name('goal.new');
     Route::get('/goal-index', [GoalSetController::class,'index'])->name('goal');
+    Route::get('/goal-status/{id}', [GoalSetController::class,'statusGoal'])->name('goal.status');
+    Route::post('/goal-confirm/{id}', [GoalSetController::class,'confirmGoal'])->name('goal.confirm');
 
     //meal plan
     Route::get('/meal-index', [MealPlanController::class,'index'])->name('meal.plan');
