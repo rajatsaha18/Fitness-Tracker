@@ -5,6 +5,7 @@ namespace App\Http\Controllers\website;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Workout;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -20,5 +21,11 @@ class HomeController extends Controller
             return view('website.home.admin-home');
         }
 
+    }
+
+    public function personalRecord()
+    {
+
+        return view('website.home.personal-record');
     }
 }

@@ -29,4 +29,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     //meal plan
     Route::get('/meal-index', [MealPlanController::class,'index'])->name('meal.plan');
     Route::post('/meal-new', [MealPlanController::class,'newMeal'])->name('new.meal');
+
+    //personal record
+    Route::get('/personal-record', [HomeController::class,'personalRecord'])->name('personal.record');
 });
