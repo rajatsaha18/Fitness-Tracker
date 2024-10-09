@@ -209,7 +209,7 @@
                     </div>
                 </li>
                 @php
-                    $currentUser = Auth::user();
+                    $currentUser = Auth::user(); // Get the currently authenticate user
                 @endphp
                 <li class="nav-item dropdown header-profile">
                     <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
