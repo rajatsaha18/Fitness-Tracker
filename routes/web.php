@@ -32,4 +32,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     //personal record
     Route::get('/personal-record', [HomeController::class,'personalRecord'])->name('personal.record');
+
+    //profile
+    Route::get('/profile', [HomeController::class,'profileShow'])->name('profile');
+    Route::post('/profile-update', [HomeController::class,'profileUpdate'])->name('profile.update');
 });
