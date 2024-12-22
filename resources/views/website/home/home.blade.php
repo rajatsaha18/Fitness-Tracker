@@ -41,7 +41,11 @@ Fitness | Home
                 @php
                     $intakeCalories = DB::table('meals')->first();
                 @endphp
+<<<<<<< HEAD
                 <h2 class="fs-24 text-black font-w600 mb-0">{{ $intakeCalories->food_item ??  '' }} Cal</h2>
+=======
+                <h2 class="fs-24 text-black font-w600 mb-0">{{ $intakeCalories->food_item }} Cal</h2>
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
                 <span class="fs-14">Intake Calories</span>
             </div>
         </div>

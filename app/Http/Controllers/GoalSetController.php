@@ -33,6 +33,10 @@ class GoalSetController extends Controller
         $goalStatus = Goal::find($id);
         $goalStatus->goal_status = $request->goal_status;
         $goalStatus->save();
+<<<<<<< HEAD
         return redirect('/goal-index')->with('message','Goal Active Successfully');
+=======
+        return redirect()->back()->with('message','Goal Active Successfully');
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
     }
 }

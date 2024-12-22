@@ -6,7 +6,10 @@ use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\GoalSetController;
 use App\Http\Controllers\MealPlanController;
+<<<<<<< HEAD
 use App\Http\Controllers\website\PasswordController;
+=======
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
 
 Route::redirect('/','login');
 
@@ -37,7 +40,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     //profile
     Route::get('/profile', [HomeController::class,'profileShow'])->name('profile');
     Route::post('/profile-update', [HomeController::class,'profileUpdate'])->name('profile.update');
+<<<<<<< HEAD
 
     Route::get('/change-password',[PasswordController::class,'showChangeForm'])->name('change.password');
     Route::post('/update-password',[PasswordController::class,'changePassword'])->name('update.password');
+=======
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
 });

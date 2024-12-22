@@ -22,7 +22,11 @@ Profile
                           <label for="">Image</label>
                           <input type="file" name="image" class="form-control">
                           @if (!empty($profile))
+<<<<<<< HEAD
                           <img src="{{ asset($profile->image ?? '') }}" alt="profile-image" style="height: 80px;width:80px">
+=======
+                          <img src="{{ asset($profile->image) }}" alt="profile-image" style="height: 80px;width:80px">
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
                           @endif
 
                         </div>
@@ -48,7 +52,11 @@ Profile
                         <div class="form-group">
                           <label for="">Mobile</label>
                           @if (!empty($profile))
+<<<<<<< HEAD
                           <input type="mobile" value="{{ $profile->mobile ?? '' }}" name="mobile" class="form-control">
+=======
+                          <input type="mobile" value="{{ $profile->mobile }}" name="mobile" class="form-control">
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
                           @else
                           <input type="mobile" name="mobile" class="form-control">
                           @endif

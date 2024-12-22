@@ -7,7 +7,11 @@ Fitness | Admin-Home
 <div class="row">
     {{-- <h4>Admin</h4> --}}
     <div class="col-xl col-md-6">
+<<<<<<< HEAD
 {{-- @php
+=======
+@php
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
     use Carbon\Carbon;
 
     // Get the current date
@@ -27,7 +31,11 @@ Fitness | Admin-Home
     // Ensure that the progress doesn't exceed 100%
     $progressPercentage = ($daysPassed / $totalDays) * 100;
     $progressPercentage = $progressPercentage > 100 ? 100 : $progressPercentage;
+<<<<<<< HEAD
 @endphp --}}
+=======
+@endphp
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
         <div class="card">
             <div class="card-body p-4">
                 <div class="d-inline-block mb-4 ms--12 position-relative donut-chart-sale">
@@ -39,7 +47,11 @@ Fitness | Admin-Home
                     </small>
                     <span class="circle bg-primary"></span>
                 </div>
+<<<<<<< HEAD
                 {{-- <h2 class="fs-24 text-black font-w600 mb-0">{{ round($progressPercentage, 2) }}%</h2> --}}
+=======
+                <h2 class="fs-24 text-black font-w600 mb-0">{{ round($progressPercentage, 2) }}%</h2>
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
                 <span class="fs-14">Weekly Progress</span>
             </div>
         </div>

@@ -2,9 +2,14 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+=======
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
 
 class Goal extends Model
 {
@@ -21,8 +26,11 @@ class Goal extends Model
 
         self::$goal = new Goal();
         self::$goal->description            = $request->description;
+<<<<<<< HEAD
         self::$goal->user_id                = Auth::id();
         self::$goal->description            = $request->description;
+=======
+>>>>>>> b929abb1be119a5711520c57348be10b10e33658
         self::$goal->start_date             = self::$start_date;
         self::$goal->end_date               = self::$end_date;
         self::$goal->save();
